@@ -30,6 +30,9 @@
     <ClInclude Include="EdgeNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AdjList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DisjointSets.cpp">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EdgeNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AdjList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
