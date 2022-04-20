@@ -27,7 +27,7 @@
     <ClInclude Include="NDGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vertex.h">
+    <ClInclude Include="EdgeNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,7 +47,7 @@
     <ClCompile Include="NDGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vertex.cpp">
+    <ClCompile Include="EdgeNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
