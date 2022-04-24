@@ -13,3 +13,18 @@ void main() {
 	cout << forest.find(3) << endl;
 
 }
+
+/*
+* Build graph (1)
+* DFS to check if connected (1)
+* visit for DFS (1)
+* Prim (1)
+* Kruskal (1)
+* QuickSort to sort edged (1)
+* edge as bridge - check if theres an answer in the forum
+* input validation (3)
+* excpetins (2)
+* main
+
+
+*/

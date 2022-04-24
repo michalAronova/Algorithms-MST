@@ -4,6 +4,17 @@
 #include <vector>
 #include "Element.h"
 
+class Element {
+private:
+	int _parent;
+	int _size;
+	friend class DisjointSets;
+
+public:
+	Element(int p, int s) : _parent(p), _size(s) {}
+
+};
+
 class DisjointSets {
 private:
 	vector<Element> _A;
