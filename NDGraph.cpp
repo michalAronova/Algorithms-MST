@@ -25,7 +25,7 @@ vector<int> NDGraph::GetAdjList(int vertex)
 
 void NDGraph::AddEdge(Edge edge)
 {
-	AddEdge(edge.u, edge.v, edge.weight);
+	AddEdge(edge.getU(), edge.getV(), edge.getWeight());
 }
 
 void NDGraph::AddEdge(int u, int v, int c)

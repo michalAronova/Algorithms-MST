@@ -16,17 +16,15 @@ void main() {
 
 /*
 * Build graph (1) v
-* DFS to check if connected (1)
-* visit for DFS (1)
+* DFS to check if connected (1) v
+* visit for DFS (1) v
 * Prim (1)
 * Kruskal (1)
-* QuickSort to sort edged (1)
+* QuickSort to sort edged (1) v
 * edge as bridge - check if theres an answer in the forum
 * input validation (3)
 * excpetins (2)
 * main
 * 
 * edge weight initialization: INT32_MAX
-
-
 */

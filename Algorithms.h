@@ -9,5 +9,8 @@ using namespace std;
 #include "NDGraph.h"
 
 vector<int> DFS(const NDGraph& G);
+void QuickSort(vector<Edge>& edges);
+void QuickSort(vector<Edge>& edges, int left, int right);
+int Partition(vector<Edge>& edges, int left, int right);
 
 #endif
