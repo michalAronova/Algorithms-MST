@@ -149,7 +149,6 @@
   <ItemGroup>
     <ClCompile Include="AdjList.cpp" />
     <ClCompile Include="DisjointSets.cpp" />
-    <ClCompile Include="Element.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MinHeap.cpp" />
     <ClCompile Include="NDGraph.cpp" />

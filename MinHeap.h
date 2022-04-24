@@ -42,8 +42,6 @@ public:
 	void	SwapPairsAndLocations(HeapPair&, HeapPair&);
 	void	Swap(HeapPair&, HeapPair&);
 	void	SwapLocations(int index1, int index2);
-
-	~MinHeap();
 };
 
 #endif

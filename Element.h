@@ -6,16 +6,6 @@ using namespace std;
 
 #include <iostream>
 
-class Element {
-private:
-	int _parent;
-	int _size;
-	friend class DisjointSets;
-
-public:
-	Element(int, int);
-
-};
 
 
 #endif
