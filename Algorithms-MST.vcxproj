@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AdjList.h" />
+    <ClInclude Include="Algorithms.h" />
     <ClInclude Include="DisjointSets.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="MinHeap.h" />
@@ -148,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdjList.cpp" />
+    <ClCompile Include="Algorithms.cpp" />
     <ClCompile Include="DisjointSets.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MinHeap.cpp" />
