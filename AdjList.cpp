@@ -1,6 +1,6 @@
 ﻿#include "AdjList.h"
 
-EdgeNode* AdjList::Head()
+EdgeNode* AdjList::Head() const
 {
 	return m_Head;
 }
@@ -90,7 +90,7 @@ int AdjList::getWeightOf(int vertex)
 	return required->GetWeight();
 }
 
-vector<int> AdjList::getAdjVerticesList()
+vector<int> AdjList::getAdjVerticesList() const
 {
 	EdgeNode* curr = Head();
 	vector<int> adjVerticesList;

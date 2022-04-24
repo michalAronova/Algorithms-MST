@@ -1,21 +1,31 @@
 #include "Algorithms.h"
 
-enum colour{ WHITE, GRAY, BLACK };
+enum colours{ WHITE, GRAY, BLACK };
 
 vector<int> DFS(const NDGraph& G) {
 	int vertexNum = G.getVerticesNum();
 	int currentRoot;
 	int u;
-	vector<colour> colours;
+	vector<colours> colour;
+	vector<int> root;
 	for (u = 0; u < vertexNum; u++) {
-		colours[u] = WHITE;
+		colour[u] = WHITE;
 	}
 	for (u = 0; u < vertexNum; u++) {
-		if (colours[u] == WHITE) {
+		if (colour[u] == WHITE) {
 			currentRoot = u;
-			VISIT(u, currentRoot);
+			VISIT(u, G, currentRoot, root, colour);
 		}
 	}
 } 
 
-void 
+void VISIT(int u, const NDGraph& G, int currentRoot, vector<int>& Root, vector<colours>& colour) {
+	Root[u] = currentRoot;
+	colour[u] = GRAY;
+	for (int v : G.GetAdjList(u)) {
+		if (colour[u] == WHITE) {
+			VISIT(v, G, currentRoot, Root, colour);
+		}
+	 }
+	colour[u] = BLACK;
+}
