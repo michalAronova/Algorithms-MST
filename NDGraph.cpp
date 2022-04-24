@@ -45,9 +45,9 @@ void NDGraph::RemoveEdge(int u, int v)
 	delete uEdgeNode;
 }
 
-void NDGraph::BuildGraph(vector<Edge> edges)
+void NDGraph::BuildGraph(const vector<Edge>& edges)
 {
-	for (Edge edge : edges)
+	for (const Edge& edge : edges)
 	{
 		AddEdge(edge);
 	}

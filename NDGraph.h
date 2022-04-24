@@ -30,7 +30,7 @@ public:
 	void AddEdge(Edge edge);
 	void RemoveEdge(int u, int v);
 
-	void BuildGraph(vector<Edge> edges);
+	void BuildGraph(const vector<Edge>& edges);
 	bool IsConnected();
 
 	int CalcPrim();
