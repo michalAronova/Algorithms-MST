@@ -18,6 +18,17 @@ vector<int> DFS(const NDGraph& G) {
 		}
 	}
 }
+
+void VISIT(int u, const NDGraph& G, int currentRoot, vector<int>& Root, vector<colours>& colour) {
+	Root[u] = currentRoot;
+	colour[u] = GRAY;
+	for (int v : G.GetAdjList(u)) {
+		if (colour[u] == WHITE) {
+			VISIT(v, G, currentRoot, Root, colour);
+		}
+	 }
+	colour[u] = BLACK;
+}
 void QuickSort(vector<Edge>& edges)
 {
 	QuickSort(edges, 0, edges.size() - 1);
@@ -75,14 +86,4 @@ int Partition(vector<Edge>& edges, int left, int right)
 		}
 	}
 	return pivotIndex;
-}
-void VISIT(int u, const NDGraph& G, int currentRoot, vector<int>& Root, vector<colours>& colour) {
-	Root[u] = currentRoot;
-	colour[u] = GRAY;
-	for (int v : G.GetAdjList(u)) {
-		if (colour[u] == WHITE) {
-			VISIT(v, G, currentRoot, Root, colour);
-		}
-	 }
-	colour[u] = BLACK;
 }
