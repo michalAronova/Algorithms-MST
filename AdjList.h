@@ -11,7 +11,7 @@ private:
 	EdgeNode* m_Head = nullptr;
 public:
 	AdjList(int vertex) { m_Vertex = vertex; };
-	EdgeNode*	Head();
+	EdgeNode*	Head() const;
 	EdgeNode*   FindVertex(int vertex);
 	bool		isVertexInList(int vertex); //maybe dont need it
 	void		insertNode(int vertex, int weight);
@@ -19,7 +19,7 @@ public:
 	EdgeNode*	removeNode(int vertex);
 	void		removeNode(EdgeNode* node);
 	int			getWeightOf(int vertex);
-	vector<int> getAdjVerticesList();
+	vector<int> getAdjVerticesList() const;
 	~AdjList();
 };
 

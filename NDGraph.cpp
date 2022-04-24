@@ -18,7 +18,7 @@ bool NDGraph::IsAdjacent(int u, int v)
 	return adjacent;
 }
 
-vector<int> NDGraph::GetAdjList(int vertex)
+vector<int> NDGraph::GetAdjList(int vertex) const
 {
 	return m_Graph[vertex].getAdjVerticesList();
 }

@@ -44,7 +44,7 @@ private:
 public:
 	NDGraph(int numOfVertices) { MakeEmptyGraph(numOfVertices); }
 
-	vector<int> GetAdjList(int vertex);
+	vector<int> GetAdjList(int vertex) const; 
 	int getVerticesNum() const { return m_verticesNum; }
 
 	void MakeEmptyGraph(int numOfVertices);
