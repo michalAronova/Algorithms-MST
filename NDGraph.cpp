@@ -23,6 +23,11 @@ vector<int> NDGraph::GetAdjList(int vertex)
 	return m_Graph[vertex].getAdjVerticesList();
 }
 
+void NDGraph::AddEdge(Edge edge)
+{
+	AddEdge(edge.u, edge.v, edge.weight);
+}
+
 void NDGraph::AddEdge(int u, int v, int c)
 {
 	EdgeNode* TouNode = new EdgeNode(u, c);
@@ -42,7 +47,11 @@ void NDGraph::RemoveEdge(int u, int v)
 
 void NDGraph::BuildGraph(vector<Edge> edges)
 {
-	
+	for (Edge edge : edges)
+	{
+		AddEdge(edge);
+	}
+	m_EdgesList = edges;
 }
 bool NDGraph::IsConnected()
 {

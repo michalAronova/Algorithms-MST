@@ -18,7 +18,7 @@ private:
 	int m_verticesNum;
 	int m_EdgesNum;
 	vector<AdjList> m_Graph;
-	vector<Edge> edgesList;
+	vector<Edge> m_EdgesList;
 
 public:
 	NDGraph(int numOfVertices) { MakeEmptyGraph(numOfVertices); }
@@ -27,6 +27,7 @@ public:
 	bool IsAdjacent(int u, int v);
 	vector<int> GetAdjList(int vertex);
 	void AddEdge(int u, int v, int c);
+	void AddEdge(Edge edge);
 	void RemoveEdge(int u, int v);
 
 	void BuildGraph(vector<Edge> edges);
