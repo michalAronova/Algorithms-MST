@@ -47,7 +47,7 @@ void MinHeap::FixHeap(int index)
 
 void MinHeap::Build()
 {
-	for(int i=m_PriorityQueue.size()/2-1;i>=0;i--)
+	for(int i = m_PriorityQueue.size()/2 - 1; i>=0 ; i--)
 	{
 		FixHeap(i);
 	}

@@ -24,15 +24,18 @@ int DisjointSets::find(int x)
 	}
 }
 
-void DisjointSets::union_groups(int repX, int repY) //use union by size improvement
+void DisjointSets::union_groups(int x, int y) //use union by size improvement
 {
-	if (_A[repX]._size > _A[repY]._size)
+	int xRep = find(x);
+	int yRep = find(y);
+
+	if (_A[xRep]._size > _A[yRep]._size)
 	{
-		_A[repY]._parent = repX;
-		_A[repX]._size += _A[repY]._size;
+		_A[yRep]._parent = xRep;
+		_A[xRep]._size += _A[yRep]._size;
 	}
 	else {
-		_A[repX]._parent = repY;
-		_A[repY]._size += _A[repX]._size;
+		_A[xRep]._parent = yRep;
+		_A[yRep]._size += _A[xRep]._size;
 	}
 }

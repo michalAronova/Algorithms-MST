@@ -58,6 +58,12 @@ bool NDGraph::IsConnected()
 	//DFS: Visit(1) and marking visited vertices -> if all visited, connected. otherwise not connected
 }
 
+void NDGraph::SortEdges()
+{
+	Algorithms::QuickSort(m_EdgesList);
+	m_EdgesAreSorted = true;
+}
+
 int NDGraph::CalcPrim()
 {
 	if (!IsConnected())

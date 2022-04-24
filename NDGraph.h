@@ -19,6 +19,7 @@ private:
 	int m_EdgesNum;
 	vector<AdjList> m_Graph;
 	vector<Edge> m_EdgesList;
+	bool m_EdgesAreSorted = false;
 
 public:
 	NDGraph(int numOfVertices) { MakeEmptyGraph(numOfVertices); }
@@ -32,6 +33,7 @@ public:
 
 	void BuildGraph(const vector<Edge>& edges);
 	bool IsConnected();
+	void SortEdges();
 
 	int CalcPrim();
 	int CalcKruskal();

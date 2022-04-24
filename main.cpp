@@ -15,7 +15,7 @@ void main() {
 }
 
 /*
-* Build graph (1)
+* Build graph (1) v
 * DFS to check if connected (1)
 * visit for DFS (1)
 * Prim (1)
@@ -25,6 +25,4 @@ void main() {
 * input validation (3)
 * excpetins (2)
 * main
-
-
 */
