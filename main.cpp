@@ -25,4 +25,8 @@ void main() {
 * input validation (3)
 * excpetins (2)
 * main
+* 
+* edge weight initialization: INT32_MAX
+
+
 */

@@ -24,9 +24,11 @@ private:
 public:
 	NDGraph(int numOfVertices) { MakeEmptyGraph(numOfVertices); }
 
+	vector<int> GetAdjList(int vertex);
+	int getVerticesNum() const { return m_verticesNum; }
+
 	void MakeEmptyGraph(int numOfVertices);
 	bool IsAdjacent(int u, int v);
-	vector<int> GetAdjList(int vertex);
 	void AddEdge(int u, int v, int c);
 	void AddEdge(Edge edge);
 	void RemoveEdge(int u, int v);
