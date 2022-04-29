@@ -52,25 +52,35 @@ void NDGraph::BuildGraph(const vector<Edge>& edges)
 		AddEdge(edge);
 	}
 	m_EdgesList = edges;
+	m_EdgesNum = edges.size();
 }
 bool NDGraph::IsConnected()
 {
-	//DFS: Visit(1) and marking visited vertices -> if all visited, connected. otherwise not connected
+	vector<int> DFSTrees = DFS(*this);
+	int vertex1Root = DFSTrees[0];
+	bool isConnected = true;
+
+	for (int i = 1; i < DFSTrees.size() && isConnected; i++)
+	{
+		if(DFSTrees[i] != vertex1Root)
+		{
+			isConnected = false;
+		}
+	}
+	return isConnected;
 }
 
 void NDGraph::SortEdges()
 {
-	Algorithms::QuickSort(m_EdgesList);
+	QuickSort(m_EdgesList);
 	m_EdgesAreSorted = true;
 }
 
 int NDGraph::CalcPrim()
 {
-	if (!IsConnected())
-		throw "No MST";
+
 }
 int NDGraph::CalcKruskal()
 {
-	if (!IsConnected())
-		throw "No MST";
+
 }

@@ -8,6 +8,7 @@ using namespace std;
 #include <vector>
 #include "NDGraph.h"
 #include "AdjList.h"
+enum colours { WHITE, GRAY, BLACK };
 
 vector<int> DFS(const NDGraph& G);
 void VISIT(int u, const NDGraph& G, int currentRoot, vector<int>& Root, vector<colours>& colours);

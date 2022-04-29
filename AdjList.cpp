@@ -53,7 +53,7 @@ EdgeNode* AdjList::removeNode(int vertex)
 
 	if(removed == nullptr)
 	{
-		throw "Error: Vertex to remove not found!";
+		throw "invalid input";
 	}
 	if(removed->GetPrev() == nullptr)
 	{

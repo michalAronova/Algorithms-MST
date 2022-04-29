@@ -1,7 +1,5 @@
 #include "Algorithms.h"
 
-enum colours{ WHITE, GRAY, BLACK };
-
 vector<int> DFS(const NDGraph& G) {
 	int vertexNum = G.getVerticesNum();
 	int currentRoot;
@@ -17,6 +15,7 @@ vector<int> DFS(const NDGraph& G) {
 			VISIT(u, G, currentRoot, root, colour);
 		}
 	}
+	return root;
 }
 
 void VISIT(int u, const NDGraph& G, int currentRoot, vector<int>& Root, vector<colours>& colour) {
