@@ -1,6 +1,6 @@
 ﻿#include "MinHeap.h"
 
-MinHeap::MinHeap(vector<int> minArray)
+MinHeap::MinHeap(vector<int>& minArray)
 {
 	m_PriorityQueue = SetPairArray(minArray);
 	SetLocationArr();

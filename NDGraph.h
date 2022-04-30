@@ -25,6 +25,7 @@ private:
 public:
 	NDGraph(int numOfVertices, const vector<Edge>& edges)
 	{
+		m_verticesNum = numOfVertices;
 		MakeEmptyGraph(numOfVertices);
 		BuildGraph(edges);
 	}
