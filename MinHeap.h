@@ -21,7 +21,6 @@ class MinHeap {
 private:
 	vector<HeapPair> m_PriorityQueue;
 	vector<int> m_LocationsArray;
-	int m_heapSize = 0;
 
 	void FixHeap(int index);
 

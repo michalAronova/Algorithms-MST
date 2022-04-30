@@ -3,7 +3,6 @@
 MinHeap::MinHeap(vector<int>& minArray)
 {
 	m_PriorityQueue = SetPairArray(minArray);
-	m_heapSize = minArray.size();
 	SetLocationArr();
 	Build();
 }
@@ -63,10 +62,10 @@ HeapPair MinHeap::DeleteMin()
 	{
 		HeapPair deleted = m_PriorityQueue[0];
 		m_PriorityQueue[0] = m_PriorityQueue[m_PriorityQueue.size() - 1];
+		m_PriorityQueue.erase(m_PriorityQueue.size() - 1);
 		m_LocationsArray[deleted.GetData() - 1] = -1;
 		m_LocationsArray[m_PriorityQueue[0].GetData() - 1] = 0;
 		FixHeap(0);
-
 		return deleted;
 	}
 }
