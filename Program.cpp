@@ -148,7 +148,7 @@ void Program::PrintToConsoleAndFile(const char* outputFileName, const string& to
 void Program::PrintToFile(const char* outputFileName, const string& message)
 {
 	ofstream outputFile;
-	outputFile.open(outputFileName);
+	outputFile.open(outputFileName, ios_base::app);
 	if (!outputFile.is_open())
 	{
 		throw "invalid input";

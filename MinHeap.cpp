@@ -26,7 +26,7 @@ void MinHeap::FixHeap(int index)
 	int left = Left(index);
 	int right = Right(index);
 
-	if (left < m_PriorityQueue.size() - 1 && m_PriorityQueue[left].GetPriority() < m_PriorityQueue[index].GetPriority())
+	if (left < m_PriorityQueue.size() - 1 && ChildSmaller(left, index))
 	{
 		min = left;
 	}
@@ -34,7 +34,7 @@ void MinHeap::FixHeap(int index)
 	{
 		min = index;
 	}
-	if (right < m_PriorityQueue.size() - 1 && m_PriorityQueue[right].GetPriority() < m_PriorityQueue[min].GetPriority())
+	if (right < m_PriorityQueue.size() - 1 && ChildSmaller(right, index))
 	{
 		min = right;
 	}
@@ -44,6 +44,15 @@ void MinHeap::FixHeap(int index)
 		SwapPairsAndLocations(m_PriorityQueue[index], m_PriorityQueue[min]);
 		FixHeap(min);
 	}
+}
+
+bool MinHeap::ChildSmaller(int child, int father)
+{
+	if (child < m_PriorityQueue.size())
+	{
+		return (m_PriorityQueue[child].GetPriority() < m_PriorityQueue[father].GetPriority());
+	}
+	return false;
 }
 
 void MinHeap::Build()
@@ -61,10 +70,10 @@ HeapPair MinHeap::DeleteMin()
 	else
 	{
 		HeapPair deleted = m_PriorityQueue[0];
-		m_PriorityQueue[0] = m_PriorityQueue[m_PriorityQueue.size() - 1];
-		m_PriorityQueue.erase(m_PriorityQueue.size() - 1);
+		m_PriorityQueue[0] = m_PriorityQueue.back();
 		m_LocationsArray[deleted.GetData() - 1] = -1;
 		m_LocationsArray[m_PriorityQueue[0].GetData() - 1] = 0;
+		m_PriorityQueue.pop_back();
 		FixHeap(0);
 		return deleted;
 	}
@@ -78,7 +87,7 @@ void MinHeap::DecreaseKey(int vertex, int newKey)
 {
 	int place = m_LocationsArray[vertex - 1];
 	m_PriorityQueue[place].SetPriority(newKey);
-	while(place > 0 && m_PriorityQueue[place].GetPriority() > m_PriorityQueue[Parent(place)].GetPriority())
+	while(place > 0 && m_PriorityQueue[place].GetPriority() < m_PriorityQueue[Parent(place)].GetPriority())
 	{
 		SwapPairsAndLocations(m_PriorityQueue[place], m_PriorityQueue[Parent(place)]);
 		place = Parent(place);

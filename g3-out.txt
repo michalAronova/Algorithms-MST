@@ -1,0 +1,3 @@
+Kruskal <47>
+Prim <50>
+Kruskal <47>

@@ -23,6 +23,8 @@ private:
 	vector<int> m_LocationsArray;
 
 	void FixHeap(int index);
+	bool ChildSmaller(int child, int father);
+
 
 	static int Parent(int index) { return (index - 1) / 2; };
 	static int Left(int index) { return 2 * index + 1; };
@@ -36,10 +38,10 @@ public:
 	void             DecreaseKey(int vertex, int newKey);		//DECREASE KEY
 
 	vector<HeapPair> SetPairArray(vector<int>& minArray);
-	void	SetLocationArr();
-	void	SwapPairsAndLocations(HeapPair&, HeapPair&);
-	void	Swap(HeapPair&, HeapPair&);
-	void	SwapLocations(int index1, int index2);
+	void		   	 SetLocationArr();
+	void			 SwapPairsAndLocations(HeapPair&, HeapPair&);
+	void			 Swap(HeapPair&, HeapPair&);
+	void			 SwapLocations(int index1, int index2);
 };
 
 #endif
