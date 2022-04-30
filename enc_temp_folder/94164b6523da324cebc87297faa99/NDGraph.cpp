@@ -140,8 +140,8 @@ int NDGraph::CalcKruskal()
 
 	for (const Edge& edge : m_EdgesList)
 	{
-		u = UF.find(edge.getU() - 1);
-		v = UF.find(edge.getV() - 1);
+		u = UF.find(edge.getU());
+		v = UF.find(edge.getV());
 		if (u != v)
 		{
 			edgeSet.push_back(edge);

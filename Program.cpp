@@ -33,7 +33,7 @@ void Program::Run(int argc, char** argv)
 vector<Edge> Program::getValidInput(char* inputFileName, int& verticesNum, int& u, int& v)
 {
 	ifstream inputFile;
-	inputFile.open(inputFileName);
+	inputFile.open(inputFileName, ios::in);
 	if(!inputFile.is_open())
 	{
 		throw "invalid input";

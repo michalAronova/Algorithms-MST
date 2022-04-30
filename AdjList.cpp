@@ -43,8 +43,16 @@ void AdjList::insertNode(int vertex, int weight)
 
 void AdjList::insertNode(EdgeNode* node)
 {
-	m_Head->SetPrev(node);
-	m_Head = node;
+	if(m_Head == nullptr)
+	{
+		m_Head = node;
+	}
+	else
+	{
+		node->SetNext(m_Head);
+		m_Head->SetPrev(node);
+		m_Head = node;
+	}
 }
 
 EdgeNode* AdjList::removeNode(int vertex)
@@ -99,6 +107,7 @@ vector<int> AdjList::getAdjVerticesList() const
 	while(curr!=nullptr)
 	{
 		adjVerticesList.push_back(curr->GetVertex());
+		curr = curr->GetNext();
 	}
 	return adjVerticesList;
 }

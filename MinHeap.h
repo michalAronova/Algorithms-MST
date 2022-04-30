@@ -30,7 +30,7 @@ private:
 	static int Right(int index) { return 2 * index + 2; };
 
 public:
-	MinHeap(vector<int> minArray);
+	MinHeap(vector<int>& minArray);
 	void             Build();
 	HeapPair		 DeleteMin();								//DELETE MIN
 	bool             IsEmpty();									//IS EMPTY
