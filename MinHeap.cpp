@@ -88,10 +88,7 @@ void MinHeap::SetLocationArr()
 		m_LocationsArray.push_back(i);
 	}
 }
-int	MinHeap::GetLocation(int data)
-{
-	
-}
+
 void MinHeap::Swap(HeapPair& pair1, HeapPair& pair2)
 {
 	HeapPair temp = pair1;

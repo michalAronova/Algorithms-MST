@@ -1,5 +1,9 @@
 ﻿#ifndef _EDGE_H
 #define _EDGE_H
+
+using namespace std;
+#include <vector>
+
 class Edge
 {
 private:
@@ -10,9 +14,9 @@ private:
 public:
 	Edge(int u, int v, int weight) : m_u(u), m_v(v), m_weight(weight) {}
 	Edge(vector<int> edge) : m_u(edge[0]), m_v(edge[1]), m_weight(edge[2]) {}
-	int getU() { return m_u; }
-	int getV() { return m_v; }
-	int getWeight() { return m_weight; }
+	int getU() const { return m_u; }
+	int getV() const { return m_v; }
+	int getWeight() const { return m_weight; }
 
 	bool operator<(const Edge& right)  const { return m_weight < right.m_weight; }
 	bool operator>(const Edge& right)  const { return m_weight > right.m_weight; }

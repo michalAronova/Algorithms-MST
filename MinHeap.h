@@ -38,7 +38,6 @@ public:
 
 	vector<HeapPair> SetPairArray(vector<int>& minArray);
 	void	SetLocationArr();
-	int		GetLocation(int vertex);
 	void	SwapPairsAndLocations(HeapPair&, HeapPair&);
 	void	Swap(HeapPair&, HeapPair&);
 	void	SwapLocations(int index1, int index2);

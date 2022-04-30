@@ -3,9 +3,15 @@
 
 using namespace std;
 #include "Edge.h"
-#include "Algorithms.h"
 #include "AdjList.h"
+#include "DisjointSets.h"
+#include "Algorithms.h"
+#include "MinHeap.h"
+
 #include <vector>
+
+#define nil -1
+enum colours { WHITE, GRAY, BLACK };
 
 class NDGraph
 {
@@ -38,6 +44,11 @@ public:
 
 	int CalcPrim();
 	int CalcKruskal();
+
+	int calcTotalWeight(const vector<Edge>& edgeSet);
+
+	vector<int> DFS();
+	void VISIT(int u, int currentRoot, vector<int>& Root, vector<colours>& colours);
 };
 
 #endif

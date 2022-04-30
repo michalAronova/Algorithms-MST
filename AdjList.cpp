@@ -90,6 +90,8 @@ int AdjList::getWeightOf(int vertex)
 	return required->GetWeight();
 }
 
+
+
 vector<int> AdjList::getAdjVerticesList() const
 {
 	EdgeNode* curr = Head();

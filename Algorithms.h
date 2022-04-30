@@ -2,16 +2,13 @@
 #define  _ALGORITHMS_H
 	
 #pragma warning(disable: 4996)
-using namespace std;
-
 #include <iostream>
 #include <vector>
-#include "NDGraph.h"
-#include "AdjList.h"
-enum colours { WHITE, GRAY, BLACK };
+#include "Edge.h"
 
-vector<int> DFS(const NDGraph& G);
-void VISIT(int u, const NDGraph& G, int currentRoot, vector<int>& Root, vector<colours>& colours);
+using namespace std;
+
+
 void QuickSort(vector<Edge>& edges);
 void QuickSort(vector<Edge>& edges, int left, int right);
 int Partition(vector<Edge>& edges, int left, int right);
