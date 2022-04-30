@@ -66,7 +66,6 @@ HeapPair MinHeap::DeleteMin()
 		m_LocationsArray[deleted.GetData() - 1] = -1;
 		m_LocationsArray[m_PriorityQueue[0].GetData() - 1] = 0;
 		FixHeap(0);
-
 		return deleted;
 	}
 }

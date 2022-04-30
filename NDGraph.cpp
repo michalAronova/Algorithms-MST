@@ -102,18 +102,18 @@ int NDGraph::CalcPrim()
 	while (!Q.IsEmpty())
 	{
 		u = Q.DeleteMin().GetData();
-		inT[u] = true;
+		inT[u - 1] = true;
 
 		EdgeNode* curr = m_Graph[u - 1].Head();
 		while (curr != nullptr)
 		{
 			int v = curr->GetVertex();
 			int w = curr->GetWeight();
-			if (!inT[v] &&  w < min[v])
+			if (!inT[v - 1] &&  w < min[v - 1])
 			{
-				min[v] = w;
-				p[v] = u;
-				Q.DecreaseKey(v, min[v]);
+				min[v - 1] = w;
+				p[v - 1] = u;
+				Q.DecreaseKey(v, min[v - 1]);
 			}
 			curr = curr->GetNext();
 		}

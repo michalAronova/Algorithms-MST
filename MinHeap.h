@@ -21,7 +21,7 @@ class MinHeap {
 private:
 	vector<HeapPair> m_PriorityQueue;
 	vector<int> m_LocationsArray;
-	int heapSize = 0;
+	int m_heapSize = 0;
 
 	void FixHeap(int index);
 
@@ -34,7 +34,7 @@ public:
 	void             Build();
 	HeapPair		 DeleteMin();								//DELETE MIN
 	bool             IsEmpty();									//IS EMPTY
-	void             DecreaseKey(int place, int newKey);		//DECREASE KEY
+	void             DecreaseKey(int vertex, int newKey);		//DECREASE KEY
 
 	vector<HeapPair> SetPairArray(vector<int>& minArray);
 	void	SetLocationArr();
