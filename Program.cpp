@@ -29,6 +29,7 @@ void Program::Run(int argc, char** argv)
 	PrintMSTResult(argv[2], "Kruskal", kruskal2);
 }
 
+
 vector<Edge> Program::getValidInput(char* inputFileName, int& verticesNum, int& u, int& v)
 {
 	ifstream inputFile;
@@ -38,69 +39,97 @@ vector<Edge> Program::getValidInput(char* inputFileName, int& verticesNum, int& 
 		throw "invalid input";
 	}
 
-	int n;
+	int m; //#edges; 
 	string line;
+	vector<Edge> res;
+	vector<int> edgeToRemove;
 	getline(inputFile, line);
-	stringstream sstream(line);
-	sstream >> n;
-	if(sstream.fail())
+	verticesNum = getNumbersFromLine(line, 1).front();
+	getline(inputFile, line);
+	m = getNumbersFromLine(line, 1).front();
+	if (verticesNum < 0 || m < 0)
 	{
 		throw "invalid input";
 	}
-	if(sstream.tellg() != EOF)
+	for (int i = 0; i < m; i++) //get all the edges
 	{
-		string dummy;
-		sstream >> dummy;
-		if(dummy.size() == 0)
-		{
-			
-		}
+		getline(inputFile, line);
+		Edge edge = getEdgeFromLine(line, verticesNum);
+		res.push_back(edge);
+	}
+	getline(inputFile, line); //edge to remove
+	edgeToRemove = getNumbersFromLine(line, 2);
+	if (checkEdgeInVector(res, edgeToRemove))
+	{
+		u = edgeToRemove[0];
+		v = edgeToRemove[1];
+	}
+	else
+	{
+		throw "invalid input";
 	}
 
-	
-	// open file v
-	// check that file is opened v
-	// loop through lines
-	// first=nodes+second=edges need to be one integer each
-	// then we need to have (edges)+1 iterations ->if exceeds it is error
-	// (edges) iterations need to have 3 integers -> first 2 must be from (1-nodes) -> last one some integer (may be negative) (method - getEdge)
-	// last iteration should be 2 integers both nodes (1-nodes)
-	//
-	// for each line - check 'line finished' - if the line continues after what we want, invalid input
-	//
-	// if all okay - check that last pair is in the previous (both directions! u->v OR v->u)
+	return res;
 }
 
-void run()
+Edge Program::getEdgeFromLine(const string& line, int verticesNum)
 {
-	string str;
-
-	int numberOfCommands;
-	cin >> numberOfCommands;
-
-	if (numberOfCommands <= 0)
+	vector<int> edge = getNumbersFromLine(line, 3);
+	bool valid = checkValidEdge(edge, verticesNum);
+	if (!valid)
 	{
-		throw "wrong input";
+		throw "invalid input";
 	}
+	return Edge(edge);
+}
 
-	cin.get();
-	getline(cin, str);
-	handleFirstLine(str);
-
-	DataStructure ds = DataStructure::CreateEmpty();
-
-	for (int i = 0; i < numberOfCommands - 1; i++)
+vector<int> Program::getNumbersFromLine(const string& line, int max)
+{
+	int n;
+	vector<int> res;
+	stringstream sstream(line);
+	for (int i = 0; i < max; i++)
 	{
-		getline(cin, str);
-		checkValidCommand(str);
-		doStuff(str, ds);
+		sstream >> n;
+		if (sstream.fail())
+		{
+			throw "invalid input";
+		}
+		res.push_back(n);
 	}
-
-	getline(cin, str);
-	if (str != "")
+	string dummy;
+	sstream >> dummy;
+	if (!sstream.fail()) //if there's more string in line --> got more data than expected in a line --> invalid input
 	{
-		throw "wrong input";
+		throw "invalid input";
 	}
+	return res;
+}
+
+bool Program::checkValidEdge(const vector<int>& edge, int verticesNum)
+{
+	if (edge[0] > verticesNum || edge[0] < 1)
+	{
+		return false;
+	}
+	if (edge[1] > verticesNum || edge[1] < 1)
+	{
+		return false;
+	}
+	return true;
+}
+
+bool Program::checkEdgeInVector(const vector<Edge>& edges, const vector<int>& edgeToRemove)
+{
+	bool found = false;
+	for (const Edge& edge : edges)
+	{
+		if (edge.isEqual(edgeToRemove))
+		{
+			found = true;
+		}
+	}
+	return found;
 }
 
 void Program::PrintMSTResult(const char* outputFileName, const string& algorithm, int MSTWeight)
@@ -128,12 +157,7 @@ void Program::PrintToFile(const char* outputFileName, const string& message)
 	outputFile.close();
 }
 
-Edge Program::getValidEdge(const string& line)
-{
-	
-}
-
-string makeStringFromNumber(int number)
+string Program::makeStringFromNumber(int number)
 {
 	stringstream sstream;
 	string numStr;

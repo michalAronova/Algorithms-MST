@@ -17,7 +17,10 @@ public:
 	void PrintMSTResult(const char* outputFileName, const string& algorithm, int MSTWeight);
 	void PrintToFile(const char* outputFileName, const string& message);
 	vector<Edge> getValidInput(char* inputFileName, int& verticesNum, int& u, int& v);
-	Edge getValidEdge(const string& line);
+	Edge getEdgeFromLine(const string& line, int verticesNum);
+	bool checkValidEdge(const vector<int>& res, int verticesNum);
+	bool checkEdgeInVector(const vector<Edge>& edges, const vector<int>& edgeToRemove);
+	vector<int> getNumbersFromLine(const string& line, int max);
 	string makeStringFromNumber(int number);
 
 private:

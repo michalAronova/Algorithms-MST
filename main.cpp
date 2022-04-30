@@ -44,8 +44,8 @@ void main(int argc, char** argv) {
 * Prim (1)
 * Kruskal (1)
 * QuickSort to sort edged (1) v
-* edge as bridge - check if theres an answer in the forum
-* input validation (3)
+* edge as bridge v
+* input validation (3) v
 * main
 * 
 * edge weight initialization: INT32_MAX
