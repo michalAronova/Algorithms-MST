@@ -1,0 +1,15 @@
+Kruskal <47>
+Prim <50>
+NO MST
+Kruskal <47>
+Kruskal <47>
+Kruskal <47>
+Kruskal <47>
+Kruskal <47>
+Kruskal <47>
+Kruskal <47>
+Kruskal <47>
+Kruskal <47>
+Kruskal <47>
+Prim <47>
+NO MST

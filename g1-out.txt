@@ -1,3 +1,0 @@
-Kruskal <6006>
-Prim <6006>
-NO MST

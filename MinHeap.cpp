@@ -26,7 +26,7 @@ void MinHeap::FixHeap(int index)
 	int left = Left(index);
 	int right = Right(index);
 
-	if (left < m_PriorityQueue.size() - 1 && ChildSmaller(left, index))
+	if (left < m_PriorityQueue.size() && ChildSmaller(left, index))
 	{
 		min = left;
 	}
@@ -34,7 +34,7 @@ void MinHeap::FixHeap(int index)
 	{
 		min = index;
 	}
-	if (right < m_PriorityQueue.size() - 1 && ChildSmaller(right, index))
+	if (right < m_PriorityQueue.size() && ChildSmaller(right, min))
 	{
 		min = right;
 	}
@@ -116,7 +116,7 @@ void MinHeap::SwapLocations(int index1, int index2)
 	m_LocationsArray[index2 - 1] = temp;
 }
 
-void MinHeap::SwapPairsAndLocations(HeapPair& pair1, HeapPair&pair2)
+void MinHeap::SwapPairsAndLocations(HeapPair& pair1, HeapPair& pair2)
 {
 	SwapLocations(pair1.GetData(), pair2.GetData());
 	Swap(pair1, pair2);
