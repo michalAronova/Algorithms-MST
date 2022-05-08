@@ -22,16 +22,6 @@ public:
 	bool checkEdgeInVector(const vector<Edge>& edges, const vector<int>& edgeToRemove);
 	vector<int> getNumbersFromLine(const string& line, int max);
 	string makeStringFromNumber(int number);
-
-private:
-	///validation methods
-	///				technical			|			logic
-	/// only digits						| each edge node is from 1-#nodes
-	///	first  is #nodes				| 
-	///	second is #edges				| 
-	///	then check that there are		| 
-	///	indeed (#edges) 'threes'		| 
-	///	and another edge (to Remove)	| edge is in the graph
 };
 
 #endif
