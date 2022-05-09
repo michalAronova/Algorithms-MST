@@ -40,9 +40,30 @@ void NDGraph::AddEdge(int u, int v, int c)
 
 void NDGraph::RemoveEdge(int u, int v)
 {
+	int toRemove = FindEdgeIndex(u, v);
+	if(toRemove == -1)
+	{
+		throw "invalid input";
+	}
 	EdgeNode* uEdgeNode = m_Graph[u - 1].removeNode(v);
 	m_Graph[v - 1].removeNode(uEdgeNode->GetTwin());
+	m_EdgesList.erase(m_EdgesList.begin() + toRemove);
 	delete uEdgeNode;
+}
+
+int NDGraph::FindEdgeIndex(int u, int v)
+{
+	int index = -1;
+	bool found = false;
+	for(int i = 0 ; i < m_EdgesList.size() && !found ; i++)
+	{
+		if((m_EdgesList[i].getU() == u && m_EdgesList[i].getV() == v) || (m_EdgesList[i].getU() == v && m_EdgesList[i].getV() == u))
+		{
+			index = i;
+			found = true;
+		}
+	}
+	return index;
 }
 
 void NDGraph::BuildGraph(const vector<Edge>& edges)
@@ -52,7 +73,6 @@ void NDGraph::BuildGraph(const vector<Edge>& edges)
 		AddEdge(edge);
 	}
 	m_EdgesList = edges;
-	m_EdgesNum = edges.size();
 }
 
 bool NDGraph::IsConnected()

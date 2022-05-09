@@ -17,7 +17,6 @@ class NDGraph
 {
 private:
 	int m_verticesNum;
-	int m_EdgesNum;
 	vector<AdjList> m_Graph;
 	vector<Edge> m_EdgesList;
 	bool m_EdgesAreSorted = false;
@@ -38,6 +37,7 @@ public:
 	void AddEdge(int u, int v, int c);
 	void AddEdge(Edge edge);
 	void RemoveEdge(int u, int v);
+	int  FindEdgeIndex(int u, int v);
 
 	void BuildGraph(const vector<Edge>& edges);
 	bool IsConnected();
