@@ -1,1 +1,10 @@
 invalid input
+Kruskal <6006>
+Prim <6006>
+invalid input
+invalid input
+invalid input
+Kruskal <6006>
+Prim <6006>
+invalid input
+invalid input

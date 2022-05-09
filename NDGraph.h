@@ -37,7 +37,7 @@ public:
 	void AddEdge(int u, int v, int c);
 	void AddEdge(Edge edge);
 	void RemoveEdge(int u, int v);
-	int  FindEdgeIndex(int u, int v);
+	int  FindEdgeIndex(vector<int> lookFor);
 
 	void BuildGraph(const vector<Edge>& edges);
 	bool IsConnected();

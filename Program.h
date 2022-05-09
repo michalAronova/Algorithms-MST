@@ -19,7 +19,6 @@ public:
 	vector<Edge> getValidInput(char* inputFileName, int& verticesNum, int& u, int& v);
 	Edge getEdgeFromLine(const string& line, int verticesNum);
 	bool checkValidEdge(const vector<int>& res, int verticesNum);
-	bool checkEdgeInVector(const vector<Edge>& edges, const vector<int>& edgeToRemove);
 	vector<int> getNumbersFromLine(const string& line, int max);
 	string makeStringFromNumber(int number);
 };

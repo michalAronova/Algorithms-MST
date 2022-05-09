@@ -13,7 +13,7 @@ void Program::Run(int argc, char** argv)
 
 	if(!graph.IsConnected())
 	{
-		throw "invalid input";
+		throw "NO MST";
 	}
 	kruskal1 = graph.CalcKruskal();
 	PrintMSTResult(argv[2], "Kruskal", kruskal1);
@@ -59,7 +59,7 @@ vector<Edge> Program::getValidInput(char* inputFileName, int& verticesNum, int& 
 	}
 	getline(inputFile, line); //edge to remove
 	edgeToRemove = getNumbersFromLine(line, 2);
-	if (checkEdgeInVector(res, edgeToRemove))
+	if (edgeToRemove[0] <= verticesNum && edgeToRemove[1] <= verticesNum && edgeToRemove[0] > 0 && edgeToRemove[1] > 0)
 	{
 		u = edgeToRemove[0];
 		v = edgeToRemove[1];
@@ -117,19 +117,6 @@ bool Program::checkValidEdge(const vector<int>& edge, int verticesNum)
 		return false;
 	}
 	return true;
-}
-
-bool Program::checkEdgeInVector(const vector<Edge>& edges, const vector<int>& edgeToRemove)
-{
-	bool found = false;
-	for (const Edge& edge : edges)
-	{
-		if (edge.isEqual(edgeToRemove))
-		{
-			found = true;
-		}
-	}
-	return found;
 }
 
 void Program::PrintMSTResult(const char* outputFileName, const string& algorithm, int MSTWeight)

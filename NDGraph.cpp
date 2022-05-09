@@ -40,7 +40,7 @@ void NDGraph::AddEdge(int u, int v, int c)
 
 void NDGraph::RemoveEdge(int u, int v)
 {
-	int toRemove = FindEdgeIndex(u, v);
+	int toRemove = FindEdgeIndex({ u, v });
 	if(toRemove == -1)
 	{
 		throw "invalid input";
@@ -51,13 +51,13 @@ void NDGraph::RemoveEdge(int u, int v)
 	delete uEdgeNode;
 }
 
-int NDGraph::FindEdgeIndex(int u, int v)
+int NDGraph::FindEdgeIndex(vector<int> lookFor)
 {
 	int index = -1;
 	bool found = false;
 	for(int i = 0 ; i < m_EdgesList.size() && !found ; i++)
 	{
-		if((m_EdgesList[i].getU() == u && m_EdgesList[i].getV() == v) || (m_EdgesList[i].getU() == v && m_EdgesList[i].getV() == u))
+		if(m_EdgesList[i].isEqual(lookFor))
 		{
 			index = i;
 			found = true;

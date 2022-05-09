@@ -1,0 +1,9 @@
+Kruskal <47>
+Prim <47>
+Kruskal <49>
+Kruskal <47>
+Prim <47>
+Kruskal <49>
+Kruskal <47>
+Prim <47>
+Kruskal <49>
